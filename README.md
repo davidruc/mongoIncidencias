@@ -84,7 +84,57 @@ Ahora para el uso de los endPoints del proyecto hay que tener en cuenta lo sigui
 
 ### CRUD del Proyecto
 
+#### Colección Trainer
 
+Para todos los métodos GET, PUT, POST, DELETE se usa el siguiente endPoint
+
+```http
+    ALL   /api/use/trainer
+```
+En caso de ser un get by id, un put o delete el id que se desea modificar u obtener se envía en los parámetros de la solicitud. Como ?id="valor_int".
+
+Para el put y post el cuerpo de la solicitud es el siguiente: 
+*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:*
+
+```JSON
+{
+        "nombre": "Miguel Castro",
+        "clave": "miguel",
+        "email_personal": "MiguelCas@gmail.com",
+        "email_corporativo": "MiguelCampus@outlook.com",
+        "telefono_movil": "+57 321 548 6549",
+        "rol": "Trainer",
+        "permisos":{
+            "/api/get": ["1.0.0", "3.5.0", "GET"],
+            "/api/post": ["1.0.0", "3.5.0", "POST"]
+        }
+}
+```
+#### colección Incidencias
+
+Para todos los métodos GET, PUT, POST, DELETE se usa el siguiente endPoint
+
+```http
+    ALL   /api/use/incidencia
+```
+En caso de ser un get by id, un put o delete el id que se desea modificar u obtener se envía en los parámetros de la solicitud. Como ?id="valor_int".
+
+Para el put y post el cuerpo de la solicitud es el siguiente: 
+*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:*
+
+```JSON
+{
+       "trainerId": 1,
+        "categoria": "hardware",
+        "tipo_incidencia": "moderada",
+        "fecha_reporte": "2022-06-03",
+        "area_incidencia": "Artemis",
+        "equipo_averiado": "pantalla",
+        "color_equipo": "negro",
+        "codigo_equipo": "Ads65752",
+        "descripcion": "Aparecen lineas moradas en la pantalla"
+}
+```
 
 ## Tecnologías
 
