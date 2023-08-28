@@ -40,7 +40,7 @@ De esta forma verá que la carpeta "*node_modules*" y el archivo "*package-lock.
     npm run dev
 ```
 
-* En caso de que tenga problemas con la compilación del typescript despliegue una nueva terminal y ejecute el comanto *npm run tsc*.
+
 
 
 ## Requerimientos
@@ -59,7 +59,7 @@ Para la creación del JWT para el inicio de proyecto y acceso a las versiones de
 Para crear el JWT de acceso dirijase a la extensión de testeo de preferencia mientras el servidor está activo e ingrese el endPoint:
 
 ```http
-    POST /login
+    POST login
 ```
 
 Y en el cuerpo de la solicitud debe ingresar el siguiente JSON:
