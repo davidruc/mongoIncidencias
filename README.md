@@ -77,6 +77,10 @@ En este caso y por cuestiones educativas se otrogan ejemplos de los usuarios y c
 Una vez creado el JWT para la session deberá copiarlo e ingresalo en los encabezados.
 En los headers ingrese en "Autorization" : **Bearer *tokenGenerado***
 
+Es importante que para el proceso de uso de los siguiente endPoints se encuentre el siguiente header en la petición:  **Accept-Version** y seguido de esto la versión que se desea manejar, en este caso tienen acceso todos los trainer a la versión 1.0.0 y 3.5.0 aunque la 3.5.0 no cuenta con ningun redireccionamiento a alguna función en específico por lo que toma por defecto la 1.0.0.
+
+
+
 Ahora para el uso de los endPoints del proyecto hay que tener en cuenta lo siguiente:
 
 * **JEFE DE TRAINERS**: Métodos permitidos [ GET, POST, PUT, DELETE ], versiones disponibles (1.0.0). Acceso completo al CRUD.
