@@ -124,7 +124,9 @@ Para todos los métodos GET, PUT, POST, DELETE se usa el siguiente endPoint
 En caso de ser un get by id, un put o delete el id que se desea modificar u obtener se envía en los parámetros de la solicitud. Como ?id="valor_int".
 
 Para el put y post el cuerpo de la solicitud es el siguiente: 
-*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:*
+*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:* 
+
+**Only left the DTO for the data and the params**
 
 ```JSON
 {
