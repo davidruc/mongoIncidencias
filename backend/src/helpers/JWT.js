@@ -26,18 +26,14 @@ const validarToken = async (req, token) => {
             token,
             encoder.encode(config.key)
         );
-        console.log(req.baseUrl);
         let res = await conexionDB.collection('trainer').findOne(
             {
                 _id: new ObjectId(jwtData.payload.id), 
                 [`permisos.${req.baseUrl}`]: `${req.headers["accept-version"]}`
             }
         );
-        console.log(res);
         const error = {message: "no tienes acceso a este método"}
-        console.log(res.headers);
-        console.log(req.headers["accept-version"]);
-        if(!res.methods.includes(req.method)) return error; 
+        if(!res.permisos[req.baseUrl].includes(req.method)) return error; 
         let {_id, permisos, ...session} = res;
         return session;
     } catch (error) { 

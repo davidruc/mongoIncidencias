@@ -18,8 +18,8 @@ db.trainer.insertMany([
         telefono_movil: "+57 321 548 6549",
         rol: "Trainer",
         permisos:{
-            "/api/get": ["1.0.0", "3.5.0"],
-            "/api/post": ["1.0.0", "3.5.0"]
+            "/api/get": ["1.0.0", "3.5.0", "GET"],
+            "/api/post": ["1.0.0", "3.5.0", "POST"]
         }
     },
     {
@@ -31,8 +31,8 @@ db.trainer.insertMany([
         telefono_movil: "+57 311 485 6945",
         rol: "Trainer",
         permisos:{
-            "/api/get": ["1.0.0", "3.5.0"],
-            "/api/post": ["1.0.0", "3.5.0"]
+            "/api/get": ["1.0.0", "3.5.0", "GET"],
+            "/api/post": ["1.0.0", "3.5.0", "POST"]
         }
     },
     {
@@ -44,8 +44,8 @@ db.trainer.insertMany([
         telefono_movil: "+57 389 455 4545",
         rol: "Trainer",
         permisos:{
-            "/api/get": ["1.0.0", "3.5.0"],
-            "/api/post": ["1.0.0", "3.5.0"]
+            "/api/get": ["1.0.0", "3.5.0", "GET"],
+            "/api/post": ["1.0.0", "3.5.0", "POST"]
         }
     },
     {
@@ -57,10 +57,10 @@ db.trainer.insertMany([
         telefono_movil: "+57 365 275 4585",
         rol: "Jefe de trainers",
         permisos:{
-            "/api/get": ["1.0.0", "3.5.0"],
-            "/api/post": ["1.0.0", "3.5.0"],
-            "/api/put": ["1.0.0", "3.5.0"],
-            "/api/delete": ["1.0.0", "3.5.0"]
+            "/api/get": ["1.0.0", "3.5.0", "GET"],
+            "/api/post": ["1.0.0", "3.5.0", "POST"],
+            "/api/put": ["1.0.0", "3.5.0", "PUT"],
+            "/api/delete": ["1.0.0", "3.5.0", "DELETE"]
         },
     }
 ]);

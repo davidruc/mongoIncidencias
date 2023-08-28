@@ -7,7 +7,7 @@ const getInitRoute = ()=>{
     const router = Router();
     const version = routesVersioning();
     router.use(passportHelper.authenticate("bearer", {session: false}));
-    router.get("/inicidencia", version({
+    router.get("/incidencia", version({
         "^1.0.0": controller.obtenerIncidenciasController
     }))
     router.get("/trainer", version({
