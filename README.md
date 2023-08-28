@@ -59,7 +59,7 @@ Para la creación del JWT para el inicio de proyecto y acceso a las versiones de
 Para crear el JWT de acceso dirijase a la extensión de testeo de preferencia mientras el servidor está activo e ingrese el endPoint:
 
 ```http
-    POST login
+    POST /login
 ```
 
 Y en el cuerpo de la solicitud debe ingresar el siguiente JSON:
