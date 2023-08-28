@@ -13,7 +13,7 @@ db.createCollection("trainer", {
         $jsonSchema: {
             bsonType: 'object',
             additionalProperties: false,
-            required: ['_id', 'id_trainer','nombre', 'email_personal', 'telefono_movil', 'rol'],
+            required: ['_id', 'id_trainer','nombre', 'clave', 'email_personal', 'telefono_movil', 'rol'],
             properties: {
                 _id: {
                     bsonType: 'objectId'
@@ -29,16 +29,20 @@ db.createCollection("trainer", {
                     bsonType: 'string',
                     description: `El parametro rol es obligatorio y debe ser un string.`
                 },
+                clave: {
+                    bsonType: "string"
+                },
                 permisos: { 
                     bsonType: 'object',
                     description: "Ingrese los permisos",
-                    required: ["/incidencias"],
-                    additionalProperties: {
-                        bsonType: "array",
-                        items: {
-                            bsonType: "string",
-                            description: "Ingrese la version autorizada",
-                        } 
+                    properties: {
+                        "/api": {
+                            bsonType: "array",
+                            items: {
+                                bsonType: "string",
+                                description: "Ingrese la version autorizada",
+                            }
+                        }
                     }
                 },
                 email_personal: {
