@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "proyecto para analizar las inicidencias de cosas dañadas en campuslands ",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --quiet app.js"
   },
