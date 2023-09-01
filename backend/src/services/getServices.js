@@ -10,3 +10,13 @@ export const obtenerTrainers = async()=>{
     return await trainer.getTrainers();
 }
 
+/* import { Habitat } from "../collections/Habitats.js";
+
+export const getServiceHabitat = async(id)=>{
+    const habitat = new Habitat();
+    return await habitat.getHabitat(id);
+};
+
+ */
+
+/* el valor id se envía como parámetro a la función "getServiceHabitat(id)" y este dato se envía desde los parámetros de la solicitud (req.query)*/
