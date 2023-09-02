@@ -1,4 +1,5 @@
 import {check} from 'express-validator';
+
 let trainer = {
     nombre: "nombre",
     clave: "clave",

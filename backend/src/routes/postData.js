@@ -9,7 +9,8 @@ const postInitRoute = ()=>{
     const router = Router();
     const version = routesVersioning();
     router.use(passportHelper.authenticate("bearer", {session: false}));
-    router.post("/inicidencia",incidenciasPostDtoV1 ,version({
+
+    router.post("/inicidencia", incidenciasPostDtoV1 ,version({
         "^1.0.0": postValidateIncidencia
     }), controller.postIncidenciaController)
     router.post("/trainer", trainersPostDtoV1 , version({
