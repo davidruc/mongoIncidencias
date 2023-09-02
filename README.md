@@ -59,7 +59,7 @@ Para la creación del JWT para el inicio de proyecto y acceso a las versiones de
 Para crear el JWT de acceso dirijase a la extensión de testeo de preferencia mientras el servidor está activo e ingrese el endPoint:
 
 ```http
-    POST /login
+POST /login
 ```
 
 Y en el cuerpo de la solicitud debe ingresar el siguiente JSON:
@@ -69,7 +69,7 @@ Y en el cuerpo de la solicitud debe ingresar el siguiente JSON:
   "clave": ""
 }
 ```
-En este caso y por cuestiones educativas se otrogan ejemplos de los usuarios y claves como están creados en la base de datos.
+En este caso y por cuestiones de facilitar el trabajo del evaluador se otrogan ejemplos de los usuarios y claves como están creados en la base de datos (aunque también es posible crear un nuevo usuario, este por defecto tomará los permisos del usuario Trainer).
 * Usuario **JEFE DE TRAINERS**:  "nombre": "Johlver", "clave": "Johlver"
 * Usuario **TRAINER**:  "nombre": "Miguel Castro", "clave": "miguel"
 
@@ -83,65 +83,60 @@ Es importante que para el proceso de uso de los siguiente endPoints se encuentre
 
 Ahora para el uso de los endPoints del proyecto hay que tener en cuenta lo siguiente:
 
-* **JEFE DE TRAINERS**: Métodos permitidos [ GET, POST, PUT, DELETE ], versiones disponibles (1.0.0). Acceso completo al CRUD.
-* **TRAINER**: Métodos permitidos [ GET, POST ], versiones disponibles (2.0.0, 3.0.0). Acceso al métodos GET y POST del CRUD.
+* **JEFE DE TRAINERS**: Métodos permitidos [ GET, POST, PUT, DELETE ], versiones disponibles (1.0.0, 3.5.0). Acceso completo al CRUD.
+* **TRAINER**: Métodos permitidos [ GET, POST ], versiones disponibles (1.0.0, 3.5.0). Acceso al métodos GET y POST.
 
 ### CRUD del Proyecto
 
 #### Colección Trainer
 
 Para todos los métodos GET, PUT, POST, DELETE se usa el siguiente endPoint
-
-```http
-    ALL   /api/use/trainer
+```
+  /api/use/trainer
 ```
 En caso de ser un get by id, un put o delete el id que se desea modificar u obtener se envía en los parámetros de la solicitud. Como ?id="valor_int".
 
 Para el put y post el cuerpo de la solicitud es el siguiente: 
-*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:*
 
 ```JSON
 {
         "nombre": "Miguel Castro",
         "clave": "miguel",
-        "email_personal": "MiguelCas@gmail.com",
-        "email_corporativo": "MiguelCampus@outlook.com",
-        "telefono_movil": "+57 321 548 6549",
+        "email": "MiguelCas@gmail.com",
+        "email_trabajo": "MiguelCampus@outlook.com",
+        "telefono": "+57 321 548 6549",
+        "telefono_fijo": "+57 321 548 6549",
+        "contacto_empresa": "+57 321 548 6549",
+        "telefono_empresarial": "+57 321 548 6549",
+        "cuenta_bancaria": 32434324334,
         "rol": "Trainer",
-        "permisos":{
-            "/api/get": ["1.0.0", "3.5.0", "GET"],
-            "/api/post": ["1.0.0", "3.5.0", "POST"]
-        }
 }
 ```
+Los datos "email_trabajo", "telefono_fijo", "contacto_empresa", "telefono_empresarial", "cuenta_bancaria" son opcionales, se pueden enviar dependiendo de la circunstancia. Los permisos del trainer son puestos por defecto. Si se desea modificar tiene que hacerse directamente en la base de datos.
+
 #### colección Incidencias
 
 Para todos los métodos GET, PUT, POST, DELETE se usa el siguiente endPoint
-
-```http
-    ALL   /api/use/incidencia
+```
+    api/use/incidencia
 ```
 En caso de ser un get by id, un put o delete el id que se desea modificar u obtener se envía en los parámetros de la solicitud. Como ?id="valor_int".
 
 Para el put y post el cuerpo de la solicitud es el siguiente: 
-*Expuesto a modificaciones en un par de horas cuando se implemente el dto de express:* 
-
-**Only left the DTO for the data and the params**
-
 ```JSON
 {
-       "trainerId": 1,
-        "categoria": "hardware",
-        "tipo_incidencia": "moderada",
-        "fecha_reporte": "2022-06-03",
-        "area_incidencia": "Artemis",
-        "equipo_averiado": "pantalla",
-        "color_equipo": "negro",
-        "codigo_equipo": "Ads65752",
-        "descripcion": "Aparecen lineas moradas en la pantalla"
+        "trainer": 1,
+        "categoria_incidencia": "hardware",
+        "tipo": "moderada",
+        "fecha": "2022-06-03",
+        "area": "Artemis",
+        "equipo": "pantalla",
+        "color": "negro",
+        "codigo": "Ads65752",
+        "descripcion_incidencia": "Aparecen lineas moradas en la pantalla"
 }
 ```
-
+El parámetro "color" es opcional.
 ## Tecnologías
 
  ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
