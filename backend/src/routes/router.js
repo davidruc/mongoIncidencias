@@ -7,10 +7,10 @@ import { limitPet } from "../helpers/limit.js";
 
 const initApiRoutes = ()=>{
     const router = Router();
-    router.use("/get", limitPet(), getInitRoute());
-    router.use("/post", limitPet(), postInitRoute());
-    router.use("/put", limitPet(), putInitRoute());
-    router.use("/delete", limitPet(), deleteInitRoute());
+    router.use("/use", limitPet(), getInitRoute());
+    router.use("/use", limitPet(), postInitRoute());
+    router.use("/use", limitPet(), putInitRoute());
+    router.use("/use", limitPet(), deleteInitRoute());
     return router;
 }
 

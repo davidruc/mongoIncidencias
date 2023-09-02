@@ -12,7 +12,8 @@ export const obtenerIncidenciasController = async(req, res, next)=>{
 
 export const obtenerTrainersController = async(req, res, next)=>{
     try {
-        const trainer = await services.obtenerTrainers();
+        const {id} = req.query
+        const trainer = await services.obtenerTrainers(id);
         res.status(200).send(trainer);
     } catch (error) {
         res.send(error);

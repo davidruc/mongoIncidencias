@@ -5,9 +5,9 @@ export const obtenerIncidencias = async(id)=>{
     const incidencia = new Incidencia();
     return await incidencia.getIncidencias(id);
 }
-export const obtenerTrainers = async()=>{
+export const obtenerTrainers = async(id)=>{
     const trainer = new Trainer();
-    return await trainer.getTrainers();
+    return await trainer.getTrainers(id);
 }
 
 /* import { Habitat } from "../collections/Habitats.js";

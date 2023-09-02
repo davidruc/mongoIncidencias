@@ -36,7 +36,10 @@ class Trainer{
         try {
             const connection = await this.connection();
             const newId = await siguienteId("trainer");
-            const result = await connection.insertOne({id_trainer: newId, ...data});
+            let permiss = {
+                "/api/use": ["1.0.0", "3.5.0", "GET", "POST"]
+            }
+            const result = await connection.insertOne({id_trainer: newId, ...data, permisos: permiss});
             return result;
         } catch (error) {
             throw error;

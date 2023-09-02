@@ -1,6 +1,5 @@
 import * as services from "../services/postServices.js"
 
-
 export const postIncidenciaController = async(req, res, next)=>{
     try {
         const data = req.body;

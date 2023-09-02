@@ -1,66 +1,101 @@
 import {check} from 'express-validator';
 let trainer = {
-    entidad1: "nombre",
-    entidad2: "email",
-    entidad3: "telefono",
-    entidad4: "rol"
+    nombre: "nombre",
+    clave: "clave",
+    email_personal: "email",
+    email_corporativo: "email_trabajo",
+    telefono_movil: "telefono",
+    telefono_residencia: "telefono_fijo",
+    telefono_empresa: "contacto_empresa",
+    telefono_movil_empresarial: "telefono_empresarial",
+    cuenta_bancaria: "cuenta_bancaria",
+    rol: "rol"
 };
-let {entidad1:t1, entidad2: t2, entidad3: t3, entidad4: t4} = trainer;
+
 export const trainersPostDtoV1 = [
-    check(`${t1}`)
-    .notEmpty().withMessage(`El ${t1} es obligatorio.`)
-    .isString().withMessage(`El ${t1} debe ser un string.`)
-    .matches(/^[a-zA-Z]+$/).withMessage(`El ${t1} solo resive letras.`),
+   
+    check(`${trainer.nombre}`)
+    .notEmpty().withMessage(`El ${trainer.nombre} es obligatorio.`)
+    .isString().withMessage(`El ${trainer.nombre} debe ser un string.`)
+    .matches(/^[a-zA-Z]+$/).withMessage(`El ${trainer.nombre} solo recibe letras.`),
 
-    check(`${t2}`)
-    .notEmpty().withMessage(`El ${t2} es obligatiorio`)
-    .isString().withMessage(`El ${t2} debe ser un string.`),
+    check(`${trainer.clave}`)
+    .notEmpty().withMessage(`El ${trainer.clave} es obligatiorio`)
+    .isString().withMessage(`El ${trainer.clave} debe ser un string.`),
 
-    check(`${t3}`)
-    .notEmpty().withMessage(`El ${t3} es obligatiorio`)
-    .isString().withMessage(`El ${t3} debe ser un string.`),    
+    check(`${trainer.email_personal}`)
+    .notEmpty().withMessage(`El ${trainer.email_personal} es obligatiorio`)
+    .isString().withMessage(`El ${trainer.email_personal} debe ser un string.`),
 
-    check(`${t4}`)
-    .notEmpty().withMessage(`El ${t4} es obligatiorio`)
-    .isString().withMessage(`El ${t4} debe ser un string.`)
+    check(`${trainer.email_corporativo}`)
+    .isString().optional().withMessage(`El ${trainer.email_corporativo} debe ser un string.`),
+
+    check(`${trainer.telefono_movil}`)
+    .notEmpty().withMessage(`El ${trainer.telefono_movil} es obligatiorio`)
+    .isString().withMessage(`El ${trainer.telefono_movil} debe ser un string.`),    
+
+    check(`${trainer.telefono_residencia}`)
+    .isString().optional().withMessage(`El ${trainer.telefono_residencia} debe ser un string.`),
+
+    check(`${trainer.telefono_empresa}`)
+    .isString().optional().withMessage(`El ${trainer.telefono_empresa} debe ser un string.`),
+
+    check(`${trainer.telefono_movil_empresarial}`)
+    .isString().optional().withMessage(`El ${trainer.telefono_movil_empresarial} debe ser un string.`),
+
+    check(`${trainer.cuenta_bancaria}`)
+    .isInt().optional().withMessage(`El ${trainer.cuenta_bancaria} debe ser un numero entero.`),
+
+    check(`${trainer.rol}`)
+    .notEmpty().withMessage(`El ${trainer.rol} es obligatiorio`)
+    .isString().withMessage(`El ${trainer.rol} debe ser un string.`),
 ];
 
 let incidencia = {
-    entidad1: "trainer",
-    entidad2: "categoria_incidencia",
-    entidad3: "tipo",
-    entidad4: "area",
-    entidad5: "equipo",
-    entidad6: "codigo",
-    entidad7: "descripcion_incidencia",
+    trainerId: "trainer",
+    categoria: "categoria_incidencia",
+    tipo_incidencia: "tipo",
+    fecha_reporte: "fecha",
+    area_incidencia: "area",
+    equipo_averiado: "equipo",
+    color_equipo: "color",
+    codigo_equipo:"codigo",
+    descripcion: "descripcion_incidencia",
 };
-let {entidad1:i1, entidad2: i2, entidad3: i3, entidad4: i4, entidad5: i5, entidad6: i6, entidad7: i7} = incidencia;
+
 export const incidenciasPostDtoV1 = [
-    check(`${i1}`)
-    .notEmpty().withMessage(`El ${i1} es obligatorio.`)
-    .isNumeric().withMessage(`El ${i1} debe ser el numero del id de un trainer.`),
+    check(`${incidencia.trainerId}`)
+    .notEmpty().withMessage(`El ${incidencia.trainerId} es obligatorio.`)
+    .isNumeric().withMessage(`El ${incidencia.trainerId} debe ser el numero del id de un trainer.`),
 
-    check(`${i2}`)
-    .notEmpty().withMessage(`El ${i2} es obligatiorio`)
-    .isString().withMessage(`El ${i2} debe ser un string.`),
+    check(`${incidencia.categoria}`)
+    .notEmpty().withMessage(`El ${incidencia.categoria} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.categoria} debe ser un string.`),
 
-    check(`${i3}`)
-    .notEmpty().withMessage(`El ${i3} es obligatiorio`)
-    .isString().withMessage(`El ${i3} debe ser un string.`),    
+    check(`${incidencia.tipo_incidencia}`)
+    .notEmpty().withMessage(`El ${incidencia.tipo_incidencia} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.tipo_incidencia} debe ser un string.`),    
 
-    check(`${i4}`)
-    .notEmpty().withMessage(`El ${i4} es obligatiorio`)
-    .isString().withMessage(`El ${i4} debe ser un string.`),
+    check(`${incidencia.fecha_reporte}`)
+    .notEmpty().withMessage(`El ${incidencia.fecha_reporte} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.fecha_reporte} el valor ingresado es un string con el formato AAAA-MM-DD.`),
     
-    check(`${i5}`)
-    .notEmpty().withMessage(`El ${i5} es obligatiorio`)
-    .isString().withMessage(`El ${i5} debe ser un string.`),
+    check(`${incidencia.area_incidencia}`)
+    .notEmpty().withMessage(`El ${incidencia.area_incidencia} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.area_incidencia} debe ser un string.`),
     
-    check(`${i6}`)
-    .notEmpty().withMessage(`El ${i6} es obligatiorio`)
-    .isString().withMessage(`El ${i6} debe ser un string.`),
+    check(`${incidencia.equipo_averiado}`)
+    .notEmpty().withMessage(`El ${incidencia.equipo_averiado} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.equipo_averiado} debe ser un string.`),
     
-    check(`${i7}`)
-    .notEmpty().withMessage(`El ${i7} es obligatiorio`)
-    .isString().withMessage(`El ${i7} debe ser un string.`),
+    check(`${incidencia.color_equipo}`)
+    .isString().optional().withMessage(`El ${incidencia.color_equipo} debe ser un string.`),
+
+    check(`${incidencia.codigo_equipo}`)
+    .notEmpty().withMessage(`El ${incidencia.codigo_equipo} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.codigo_equipo} debe ser un string.`),
+
+    check(`${incidencia.descripcion}`)
+    .notEmpty().withMessage(`El ${incidencia.descripcion} es obligatiorio`)
+    .isString().withMessage(`El ${incidencia.descripcion} debe ser un string.`),
 ];
